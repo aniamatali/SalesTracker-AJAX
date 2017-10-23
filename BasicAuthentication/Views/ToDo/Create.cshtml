@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+@model BasicAuthentication.Models.Item
+
+<h2>Add a new task</h2>
+
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to List", "Index")
