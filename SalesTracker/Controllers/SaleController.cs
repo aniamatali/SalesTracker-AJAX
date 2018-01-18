@@ -24,6 +24,7 @@ namespace SalesTracker.Controllers
 			_db = db;
 		}
 
+        private ApplicationDbContext db = new ApplicationDbContext();
 
 		public IActionResult Index()
 		{
@@ -34,7 +35,7 @@ namespace SalesTracker.Controllers
 		
 		public IActionResult Create()
 		{
-            ViewBag.SaleId = new SelectList(_db.SalesAssociates, "SalesAssociateId", "Name");
+            ViewBag.SalesAssociateId = new SelectList(_db.SalesAssociates, "SalesAssociateId", "Name");
 			return View();
 		}
 
@@ -49,7 +50,7 @@ namespace SalesTracker.Controllers
 		public IActionResult Details(int id)
 		{
 			var thisSalesAssociate = _db.SalesAssociates
-								 .Include(x => x.Sales)
+								 .Include(x => x.SalesAssociateId)
 								 .FirstOrDefault(items => items.SalesAssociateId == id);
 			return View(thisSalesAssociate);
 		}
