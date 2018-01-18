@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using SalesTracker.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace SalesTracker.Controllers
 {
@@ -45,6 +47,14 @@ namespace SalesTracker.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+		public IActionResult Details(int id)
+		{
+            var thisSalesAssociate = _db.SalesAssociates
+								 .Include(x => x.Sales)
+								 .FirstOrDefault(items => items.SalesAssociateId == id);
+			return View(thisSalesAssociate);
+		}
 
     }
 }

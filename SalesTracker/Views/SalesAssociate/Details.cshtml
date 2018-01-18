@@ -1,0 +1,21 @@
+﻿@model SalesTracker.Models.SalesAssociate
+
+@{
+    ViewData["Title"] = "SalesAssociate - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+
+
+
+   
+
+
+
+   
+
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.SalesAssociateId }) | @Html.ActionLink("Back to List", "Index")</p>
+</div>

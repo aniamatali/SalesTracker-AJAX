@@ -16,6 +16,6 @@ namespace SalesTracker.Models
             base.OnModelCreating(builder);
         }
         public DbSet<SalesAssociate> SalesAssociates { get; set; }
-		
+		public DbSet<Sale> Sales { get; set; }
     }
 }

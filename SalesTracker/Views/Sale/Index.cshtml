@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SalesTracker.Models.Sale>
+
+@{
+    ViewData["Title"] = "Review";
+
+}
+
+
+@using System.Security.Claims
+
+<h3>Sales</h3>
+<table>
+    <tr>
+        <th>
+            SaleId
+        </th>
+        <th>
+            SalesAssociateId
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Description
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listSale in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelReview => listSale.SaleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelReview => listSale.SalesAssociateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelReview => listSale.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelReview => listSale.Description)
+            </td>
+
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Add Review", "Create")
+</p>
+

@@ -1,0 +1,25 @@
+﻿@model SalesTracker.Models.Sale
+
+@{
+    ViewData["Title"] = "Sale - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+<p>Description @Html.EditorFor(model => model.Description) </p>
+  
+
+<p>Price @Html.EditorFor(model => model.Price)</p>
+
+
+
+ <p>@Html.DropDownList("SalesAssociateId") </p>
+
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+@Html.ActionLink("Back to List", "Index")
+
