@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+@model SalesTracker.Models.SalesAssociate
+
+<h2>Hire new sales associate.</h2>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to List", "Index")

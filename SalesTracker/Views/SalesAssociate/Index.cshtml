@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SalesTracker.Models.SalesAssociate>
+
+@{
+    ViewData["Title"] = "SalesAssociate";
+}
+
+@using System.Security.Claims
+
+<table>
+    <tr>
+        <th>
+            Name of Associate
+        </th>
+            
+        <th></th>>
+    </tr>
+
+    @foreach (var listSalesAssociate in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelSalesAssociate => listSalesAssociate.Name)
+            </td>
+           
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = listSalesAssociate.SalesAssociateId }) 
+              
+
+            </td>
+        </tr>
+    }
+</table>
+   
+    @Html.ActionLink("Add New Sales Woman or Man", "Create")
+
