@@ -54,11 +54,11 @@ namespace SalesTracker.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult NewSale(string newDescription, int newPrice, int newSalesAssociateId)
+		public IActionResult NewSale(string Description, int Price, int SalesAssociateId)
 		{
-			Sale newSale = new Sale(newDescription, newPrice, newSalesAssociateId);
-			db.Sales.Add(newSale);
-			db.SaveChanges();
+			Sale newSale = new Sale(Description, Price, SalesAssociateId);
+			_db.Sales.Add(newSale);
+			_db.SaveChanges();
 			return Json(newSale);
 		}
 
