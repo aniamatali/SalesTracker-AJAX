@@ -30,20 +30,21 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelReview => listSale.SaleId)
+                @Html.DisplayFor(modelSale => listSale.SaleId)
             </td>
             <td>
-                @Html.DisplayFor(modelReview => listSale.SalesAssociateId)
+                @Html.DisplayFor(modelSale => listSale.SalesAssociateId)
             </td>
             <td>
-                @Html.DisplayFor(modelReview => listSale.Price)
+                @Html.DisplayFor(modelSale => listSale.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelReview => listSale.Description)
+                @Html.DisplayFor(modelSale => listSale.Description)
             </td>
 
         </tr>
     }
+	
 </table>
 <p>
     @Html.ActionLink("Add Review", "Create")

@@ -28,7 +28,7 @@ namespace SalesTracker.Controllers
 
 		public IActionResult Index()
 		{
-			return View(_db.Sales.Include(x => x.SalesAssociate).ToList());
+            return View(_db.Sales.Include(x => x.SalesAssociate).ToList());
 		}
 
 
@@ -39,12 +39,18 @@ namespace SalesTracker.Controllers
 			return View();
 		}
 
-        [HttpPost]
-		public IActionResult Create(Sale item)
+		[HttpPost]
+		public IActionResult Create(string Description, int Price, int SalesAssociateId)
 		{
-			_db.SaveChanges();   // Updated
-									 // Removed db.SaveChanges() call
-			return RedirectToAction("Index");
+			var newSale = new Sale(Description, Price, SalesAssociateId);
+
+			if (ModelState.IsValid)
+			{
+				_db.Sales.Add(newSale);
+				_db.SaveChanges();
+			}
+
+			return Json(newSale);
 		}
 
 		public IActionResult Details(int id)

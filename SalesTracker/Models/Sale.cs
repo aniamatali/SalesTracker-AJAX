@@ -33,5 +33,17 @@ namespace SalesTracker.Models
 			return this.SaleId.GetHashCode();
 		}
 
+		public Sale(string Description, int Price, int SalesAssociateId)
+		{
+
+			this.Description = Description;
+			this.Price = Price;
+			this.SalesAssociateId = SalesAssociateId;
+		}
+
+		public Sale()
+		{
+		}
+
 	}
 }
