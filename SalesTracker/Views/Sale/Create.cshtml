@@ -4,7 +4,28 @@
     ViewData["Title"] = "Sale - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+      $(document).ready(function() {
+                $('.new-sale').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("NewSale")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        var resultMessage = 'You\'ve added a new salen to the database!<br>SaleId: ' + result.id + '<br>Description: ' + result.description + '<br>Price: ' + result.price;
+                        $('#result6').html(resultMessage);
+                    }
+                });
+            });
+    </script>
+    </head>
+	
 @using (Html.BeginForm())
 {
 
@@ -20,6 +41,7 @@
 
     <input type="submit" value="Create" class="btn btn-default" />
 }
+<div id="result6"></div>
 
 @Html.ActionLink("Back to List", "Index")
 

@@ -53,6 +53,16 @@ namespace SalesTracker.Controllers
 			return Json(newSale);
 		}
 
+		[HttpPost]
+		public IActionResult NewSale(string newDescription, int newPrice, int newSalesAssociateId)
+		{
+			Sale newSale = new Sale(newDescription, newPrice, newSalesAssociateId);
+			db.Sales.Add(newSale);
+			db.SaveChanges();
+			return Json(newSale);
+		}
+
+
 		public IActionResult Details(int id)
 		{
 			var thisSalesAssociate = _db.SalesAssociates
